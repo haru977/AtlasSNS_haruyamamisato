@@ -32,7 +32,6 @@ Route::post('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::group(['middleware' => 'auth'],function(){
 
-Route::post('/top','PostsController@index');
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
