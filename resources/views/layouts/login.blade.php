@@ -22,12 +22,13 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
-                <ul>
+                <p>〇〇さん</p>
+            </div>
+            <div class="accordion">
+                <p class="nav-btn"><img src="images/arrow.png" class="arrow"></p>
+                <ul class="nav-menu">
                     <li><a href="/top">HOME</a></li>
                     <li><a href="/profile">プロフィール編集</a></li>
                     <li><a href="/logout">ログアウト</a></li>
@@ -58,7 +59,7 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('js/script.js')}}"></script>
 </body>
 </html>
