@@ -8,6 +8,16 @@ header{
     background:#186AC9;
 }
 
+/* アコーディオンメニュー */
+.nav-menu{
+    display: none;
+}
+
+img.arrow{
+    width: 10px;
+    height: 20px;
+}
+
 /* main content */
 #row{
     display: flex;
