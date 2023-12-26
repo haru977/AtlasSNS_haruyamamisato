@@ -18,11 +18,11 @@
             </div>
             <div class="update-block">
                 <label for="pass">password</label>
-                <input type="password" name="password" value="{{Auth::user()->password}}">
+                <input type="password" name="password">
             </div>
             <div class="update-block">
                 <label for="confirm-pass">password confirm</label>
-                <input type="password" name="confirm_password" value="{{Auth::user()->password}}">
+                <input type="password" name="confirm_password">
             </div>
             <div class="update-block">
                 <label for="name">bio</label>
