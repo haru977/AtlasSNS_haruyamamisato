@@ -18,6 +18,17 @@ class UsersController extends Controller
     // プロフィール編集機能
     public function update(Request $request)
     {
+        if($request->isMethod('post')){
+            // バリデーション設定
+            $request->validate([
+                'username' => 'required|between:2,12',
+                'mail' => 'required|unique:users|between:5,40',
+                'password' => 'required|alpha_num|between:8,20',
+                'password-confirmation' => 'required|alpha_num|between:8,20|same:password',
+                'bio' => 'max:150',
+                'photo' => 'mimes:jpg,png,bmp,gif,svg',
+            ]);
+
         $id = $request->input('id');
         $username = $request->input('username');
         $mail = $request->input('mail');
@@ -30,9 +41,9 @@ class UsersController extends Controller
             'mail' => $mail,
             'password' => $password,
             'bio' => $bio,
-            // 'images' => $icon,
+            'images' => $icon,
         ]);
-
+    }
        return redirect('/top');
     }
 }
