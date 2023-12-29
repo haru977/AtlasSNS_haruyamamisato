@@ -35,9 +35,14 @@ Route::group(['middleware' => 'auth'],function(){
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
+// プロフィール編集機能(ID取得)
+Route::get('/profile/{id}/update','UsersController@update');
+// プロフィール編集情報をDBに登録
+Route::post('/profile/update','UsersController@update');
 
 Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+
 });
