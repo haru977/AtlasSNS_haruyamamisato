@@ -23,6 +23,9 @@
 Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 
+// ログアウト機能
+Route::get('/logout','Auth\LoginController@logout');
+
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
@@ -46,3 +49,4 @@ Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
 });
+

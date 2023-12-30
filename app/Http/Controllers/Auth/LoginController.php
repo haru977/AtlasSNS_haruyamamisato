@@ -51,4 +51,11 @@ class LoginController extends Controller
         }
         return view("auth.login");
     }
+
+// ログアウト機能
+    public function logout(Request $request){
+        // AuthファサードのLogoutメソッドでAUth認証を削除
+        Auth::logout();
+        return redirect('/login');
+    }
 }
