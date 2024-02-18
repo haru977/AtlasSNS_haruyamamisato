@@ -38,10 +38,12 @@ Route::group(['middleware' => 'auth'],function(){
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
-// プロフィール編集機能(ID取得)
-Route::get('/profile/{id}/update','UsersController@update');
-// プロフィール編集情報をDBに登録
-Route::post('/profile/update','UsersController@update');
+
+Route::get('/profile/{id}/update','UsersController@update');// プロフィール編集機能(ID取得)
+Route::post('/profile/update','UsersController@update');// プロフィール編集情報をDBに登録
+
+Route::post('/posts/index','PostController@create');// 投稿データ送信
+Route::get('/posts/index','PostController@create');//投稿データ表示
 
 Route::get('/search','UsersController@index');
 
