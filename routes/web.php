@@ -43,7 +43,7 @@ Route::get('/profile/{id}/update','UsersController@update');// プロフィー�
 Route::post('/profile/update','UsersController@update');// プロフィール編集情報をDBに登録
 
 Route::post('/posts','PostsController@store');// 投稿データ送信
-Route::get('/posts','PostsController@index');//投稿データ表示
+Route::get('/posts','PostsController@index')->name("posts,index");//投稿データ表示
 
 Route::get('/search','UsersController@index');
 
