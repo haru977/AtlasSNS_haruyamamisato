@@ -46,4 +46,11 @@ class UsersController extends Controller
     }
        return redirect('/top');
     }
+
+    //投稿者情報受け取りのためリレーション設定
+    //1対多の「多」と結合（一人の投稿者が複数の投稿をすることができる）
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
