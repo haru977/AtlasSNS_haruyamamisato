@@ -10,10 +10,10 @@ class PostsController extends Controller
 
 public function index()
 {
-    // 投稿の表示
-    $posts = Post::all();
+    // 投稿の一覧表示
+    $posts = Post::all();//投稿データを取得
 
-    return view('posts.index', compact('posts'));
+    return view('posts.index', compact('posts'));//投稿データをビューに渡す
 }
 
 
@@ -24,7 +24,7 @@ public function index()
             'content' => 'required|max:155']);
 
         $post = new Post();
-        $post->post = $request->input('content');
+        $post->post = $request->input('content');//postカラムにデータを保存
         $post->user_id = auth()->user()->id;
         $post->save();
 
