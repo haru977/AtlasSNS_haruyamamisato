@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="contaner">
+<div class="container">
     {!! Form::open(['url' => '/posts']) !!}
 <div class="post">
 <img src="{{ asset('storage/'.Auth::user()->images) }}" width="25" height="25">
@@ -14,6 +14,16 @@
 </div>
 {!! Form::close() !!}
 
+<div class="posts">
+    <h2>投稿機能</h2>
+    <ul>
+    <!-- 投稿内容一覧表示のためのループを開始↓ -->
+        @foreach ($posts as $post)
+        <!-- postカラムの値（投稿内容）を表示↓ -->
+        <li>><strong>{{ $post->user->name }}</strong>: {{ $post->post }}</li>
+        @endforeach
+    </ul>
+</div>
 </div>
 
 
