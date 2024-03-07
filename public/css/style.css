@@ -18,6 +18,10 @@ img.arrow{
     height: 20px;
 }
 
+.flipped {
+    transform: scaleY(-1);
+}
+
 /* main content */
 #row{
     display: flex;
