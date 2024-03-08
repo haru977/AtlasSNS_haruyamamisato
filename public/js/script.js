@@ -3,9 +3,17 @@
 //     alert('OK!');
 //   });
 
+// アコーディオンメニュー（矢印をクリックして反転）
+$(document).ready(function() {
+    // p.nav-btn要素をクリックしたときのイベント
+    $("p.nav-btn").click(function() {
+        $(this).toggleClass('flipped');
+    });
+});
+
 // アコーディオンメニュー(矢印を押したら表示)
 $(function (){
-     $(".nav-btn").on("click", function(){
+    $(".nav-btn").on("click", function(){
         $(this).next().slideToggle(300);
         $(this).toggleClass("open",300);
     });
@@ -34,4 +42,18 @@ $(function(){
         $('.js-modal').fadeOut();
         return false;
     });
+});
+
+// 削除ボタンの反転
+$(function() {
+    $('a img').hover(
+        function() 
+        {$(this).attr('src', $(this).attr('src').replace('trash', 'trash-h'));},
+        function() 
+        {
+            if (!$(this).hasClass('current')) {
+                $(this).attr('src', $(this).attr('src').replace('trash-h', 'trash'));
+        }
+    }
+    );
 });
