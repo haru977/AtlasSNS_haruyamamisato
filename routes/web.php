@@ -45,10 +45,9 @@ Route::post('/profile/update','UsersController@update');// プロフィール編
 Route::post('/posts','PostsController@store');// 投稿データ送信
 Route::get('/posts','PostsController@index')->name("posts,index");//投稿データ表示
 
-// Route::post('/top','PostsController@update');// 投稿の編集
-// Route::get('/posts','PostsController@update');// 投稿の編集
+Route::post('/posts/{id}/update','PostsController@update')->name('posts.update');// 投稿の編集
 
-Route::get('/post/{id}/delete','PostsController@delete');// 投稿の削除
+Route::get('/posts/{id}/delete','PostsController@delete');// 投稿の削除
 
 Route::get('/search','UsersController@index');
 
