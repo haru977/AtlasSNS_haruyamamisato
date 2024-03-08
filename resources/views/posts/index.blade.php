@@ -24,10 +24,10 @@
         <!-- ログインユーザーの投稿にのみ編集、削除ボタンを表示 -->
         @if($post->user_id === Auth::user()->id)
         <!-- 編集ボタン -->
-        <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">
+        <a class="js-modal-open" href="#" post="{{ $post->post }}" post_id="{{ $post->id }}">
             <img class="edit-btn" src="images/edit.png" width="25" height="25"></a>
         <!-- 削除ボタン -->
-        <a class="delete" href="/post/{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')">
+        <a class="delete" href="/posts/{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')">
             <img class="delete-btn" src="images/trash.png" width="25" height="25"></a>
             @endif
     </li>
@@ -36,9 +36,9 @@
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-            <form action="/top" method="post">
+            <form action="{{ route('posts.update',['id' => $post->id]) }}" method="post">
                 <textarea name="edit" class="modal_post"></textarea>
-                <input type="hidden" name="id" class="modal_id" value="">
+                <input type="hidden" name="id" class="modal_id" value="{{ $post->id }}">
                 <input type="submit" value="更新">
                 {{ csrf_field() }}<!-- CSRF保護機能 -->
             </form>
