@@ -29,24 +29,20 @@ public function index()
         return redirect('/top');
     }
 
-// // 投稿の編集
-// public function update(Request $request)
-// {
-//     $request->validate([
-//         'post' => 'required|max:150',
-//     ]);
+// 投稿の編集
+public function update(Request $request)
+{
+    $request->validate([
+        'edit' => 'required|max:150',
+    ]);
 
-//     $edit = $request->input('edit');
-//     $id = $request->input('id');
-//     $user_id = Auth::id();
-//     dd("123");
+    $id = $request->input('id');// 編集する投稿(ID)の取得
+    $post = Post::findOrFail($id);// 取得した投稿(ID)の投稿内容を検索
+    $post->post = $request->input('edit');// 編集内容を反映
+    $post->save();// 変更をデータベースに保存
 
-//     User::where('id',$id)->update([
-//         'edit' => $edit,
-//     ]);
-
-//     return redirect('/top');
-// }
+    return redirect('/top');
+}
 
 // 投稿の削除
 public function delete($id)
