@@ -29,4 +29,31 @@ public function index()
         return redirect('/top');
     }
 
+// // 投稿の編集
+// public function update(Request $request)
+// {
+//     $request->validate([
+//         'post' => 'required|max:150',
+//     ]);
+
+//     $edit = $request->input('edit');
+//     $id = $request->input('id');
+//     $user_id = Auth::id();
+//     dd("123");
+
+//     User::where('id',$id)->update([
+//         'edit' => $edit,
+//     ]);
+
+//     return redirect('/top');
+// }
+
+// 投稿の削除
+public function delete($id)
+{
+    Post::where('id',$id)->delete();
+    return redirect('/top');
 }
+
+}
+
