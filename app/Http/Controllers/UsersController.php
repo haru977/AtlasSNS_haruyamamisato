@@ -11,8 +11,18 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
-    public function search(){
-        return view('users.search');
+
+    public function search(Request $request){
+        // 検索したワードを$keywordで取得
+        $keyword = $request->input('keyword');
+        // usersテーブルからusernameをあいまい検索
+        // ワードがない場合は全ユーザーを表示
+        if(!empty($keyword)){
+            $users = User::where('username','like', '%'.$keyword.'%')->get();
+        }else{
+            $users = User::all();
+        }
+        return view('users.search',['users'=>$users]);
     }
 
     // プロフィール編集機能
