@@ -49,7 +49,7 @@ Route::post('/posts/{id}/update','PostsController@update')->name('posts.update')
 
 Route::get('/posts/{id}/delete','PostsController@delete');// 投稿の削除
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');// 検索機能
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
