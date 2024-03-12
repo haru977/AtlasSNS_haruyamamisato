@@ -10,10 +10,12 @@
     </form>
     <div class=search-user>
     @foreach ($users as $user)
+    @if($user->id != Auth::id()) <!-- ログインユーザーのIDを除外 -->
     <tr>
         <td>{{ $user->username }}</td>
     <img src="{{ asset('storage/'.Auth::user()->images) }}" width="25" height="25">
     </tr>
+    @endif
     @endforeach
     </div>
 </div>
