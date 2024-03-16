@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -13,12 +14,15 @@ class UsersController extends Controller
     }
 
     public function search(Request $request){
-        // 検索したワードを$keywordで取得
-        $keyword = $request->input('keyword');
+        $loggedInUserId = Auth::id();// ログインユーザーの取得
+        $keyword = $request->input('keyword');// 検索したワードを$keywordで取得
+
         // usersテーブルからusernameをあいまい検索
         // ワードがない場合は全ユーザーを表示
         if(!empty($keyword)){
-            $users = User::where('username','like', '%'.$keyword.'%')->get();
+            $users = User::where('username','like', '%'.$keyword.'%')
+            ->where('id','!=', $loggedInUserId)// ログインユーザーのIDを除外
+            ->get();
         }else{
             $users = User::all();
         }
