@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -14,8 +15,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    //  ※fillable = 書き換え可能
     protected $fillable = [
-        'username', 'mail', 'password',
+        'username', 'mail', 'password','following_id','followed_id'
     ];
 
     /**
@@ -26,4 +29,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // フォロー機能
+    // 多対多のリレーション設定
+    public function following()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
+    }
+
+    // ログインユーザーがフォローしているかの確認
+    public function isFollowing(User $user)
+    {
+        return $this->following->contains($user);
+    }
+
 }
