@@ -18,7 +18,23 @@
     @if($user->id != Auth::id()) <!-- ログインユーザーのIDを除外 -->
     <tr>
         <td>{{ $user->username }}</td>
-    <img src="{{ asset('storage/'.Auth::user()->images) }}" width="25" height="25">
+        <td>
+        <img src="{{ asset('storage/'.Auth::user()->images) }}" width="25" height="25">
+        @if(Auth::user()->following->contains($user)) <!-- フォローしているかどうかでボタンの切り替え -->
+            <form action="{{ route('users.unfollow', $user) }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-danger">フォロー解除
+                </button>
+            </form>
+        @else
+            <form action="{{ route('users.follow', $user) }}" method="post">
+                @csrf
+                <input type="hidden" name="follows">
+                <button type="submit" class="btn btn-info">フォローする
+                </button>
+            </form>
+        @endif
+        </td>
     </tr>
     @endif
     @endforeach
