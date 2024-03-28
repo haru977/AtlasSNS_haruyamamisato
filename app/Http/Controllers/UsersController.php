@@ -13,6 +13,7 @@ class UsersController extends Controller
         return view('users.profile');
     }
 
+    // ユーザー検索機能
     public function search(Request $request){
         $loggedInUserId = Auth::id();// ログインユーザーの取得
         $keyword = $request->input('keyword');// 検索したワードを$keywordで取得
