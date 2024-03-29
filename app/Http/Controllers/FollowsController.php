@@ -26,11 +26,12 @@ class FollowsController extends Controller
         return redirect()->back();
     }
 
-    // フォローリスト
-    public function index()
+//     // フォローリスト
+public function show()
 {
-    // 投稿の一覧表示
-    $posts = Post::all();//投稿データを取得
-    return view('follow-list', compact('posts'));//投稿データをビューに渡す
+    // Postモデル経由でpostsテーブルのレコードを取得
+    $posts = Post::get();
+    return view('followlist', compact('posts'));
 }
+
 }
