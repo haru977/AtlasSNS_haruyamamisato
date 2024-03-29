@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Follow;
 
@@ -26,4 +26,11 @@ class FollowsController extends Controller
         return redirect()->back();
     }
 
+    // フォローリスト
+    public function index()
+{
+    // 投稿の一覧表示
+    $posts = Post::all();//投稿データを取得
+    return view('follow-list', compact('posts'));//投稿データをビューに渡す
+}
 }
