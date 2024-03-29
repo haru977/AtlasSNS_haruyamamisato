@@ -48,4 +48,11 @@ class User extends Authenticatable
         return $this->following->contains($user);
     }
 
+    // フォローリスト
+    // フォローしてるユーザーの投稿を取得するためのリレーション設定
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 }
