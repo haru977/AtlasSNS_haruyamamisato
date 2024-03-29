@@ -54,6 +54,8 @@ Route::get('/search','UsersController@search');// 検索機能
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
+Route::get('/follow-list','FollowsController@show');// フォローリスト
+
 Route::post('/users/{user}/follow','FollowsController@follows')->name('users.follow');// フォロー機能
 Route::post('/users/{user}/unfollow','FollowsController@unfollow')->name('users.unfollow');// フォロー解除
 
