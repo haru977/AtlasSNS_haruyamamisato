@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h1>フォローしているユーザーの投稿</h1>
+    <!-- フォローリスト -->
+    @if(count($posts) > 0)
         <ul class="list-group">
             @foreach($posts as $post)
                 <li class="list-group-item">
@@ -13,5 +14,7 @@
                 </li>
             @endforeach
         </ul>
+    @else
+    @endif
 </div>
 @endsection
