@@ -1,5 +1,6 @@
 @extends('layouts.login')
 @section('content')
+<!-- フォロワーリスト -->
 <div class="container">
     @if(count($posts) > 0)
         <ul class="list-group">
