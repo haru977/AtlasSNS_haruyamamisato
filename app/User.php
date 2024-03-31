@@ -31,13 +31,14 @@ class User extends Authenticatable
     ];
 
     // フォロー機能
-    // 多対多のリレーション設定
+    // 多対多のリレーション設定(フォローアクション、フォロー数の取得)
     public function following()
     {
         return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
     }
 
-    public function followers()
+    // 多対多のリレーション設定（フォロー解除アクション、フォロワー数の取得）
+    public function follower()
     {
         return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
     }
