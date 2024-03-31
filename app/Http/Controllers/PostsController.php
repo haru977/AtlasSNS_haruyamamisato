@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostsController extends Controller
 {
@@ -51,5 +53,24 @@ public function delete($id)
     return redirect('/top');
 }
 
+// フォローリスト
+public function showfollow(){
+    // フォローしているユーザーのidを取得
+    $following_id = Auth::user()->following()->pluck('followed_id');
+    // フォローしているユーザーのidを元に投稿内容を取得
+    $posts = Post::with('user')->whereIn('user_id', $following_id)->get();
+    // dd("$following_id");
+    return view('follows.followlist', compact('posts'));
+    }
+
+    // フォロワーリスト
+public function showfollower(){
+    // フォローされたユーザーのidを取得
+    $follower_id = Auth::user()->follower()->pluck('following_id');
+    // フォローされたユーザーのidを元に投稿内容を取得
+    $posts = Post::with('user')->whereIn('user_id', $follower_id)->get();
+    // dd("$follower_id");
+    return view('follows.followerlist', compact('posts'));
+    }
 }
 

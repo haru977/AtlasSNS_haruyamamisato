@@ -26,12 +26,4 @@ class FollowsController extends Controller
         return redirect()->back();
     }
 
-//     // フォローリスト
-public function show()
-{
-    // Postモデル経由でpostsテーブルのレコードを取得
-    $posts = Post::get();
-    return view('followlist', compact('posts'));
-}
-
 }
