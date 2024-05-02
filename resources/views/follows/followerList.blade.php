@@ -6,7 +6,9 @@
         <ul class="list-group">
             @foreach($posts as $post)
                 <li class="list-group-item">
-                    <img src="{{ asset('storage/'.Auth::user()->images) }}" width="25" height="25">
+                    <a class="other-profile" href="{{ route('other.profile' , ['id' => $post->user->id]) }}"><!-- 相手のプロフィールページへの遷移 -->
+                    <img src="{{ asset('storage/' . $post->user->images) }}" width="25" height="25">
+                    </a>
                     <strong>{{ $post->user->username }}</strong>: {{ $post->post }}
                     <span>{{ $post->created_at->format('Y-m-d H:i:s') }}</span>
 
