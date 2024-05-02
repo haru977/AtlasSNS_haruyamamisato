@@ -60,5 +60,7 @@ Route::get('/follower-list','PostsController@showfollower');// フォロワー�
 Route::post('/users/{user}/follow','FollowsController@follows')->name('users.follow');// フォロー機能
 Route::post('/users/{user}/unfollow','FollowsController@unfollow')->name('users.unfollow');// フォロー解除
 
+Route::get('/users/{id}/otherprofile','UsersController@showProfile')->name('show.profile');// 押したアイコンのユーザー情報を取得
+Route::get('/users/{id}/otherprofile','UsersController@otherProfile')->name('other.profile');// 押したアイコンのユーザーpプロフィールを表示
 });
 
