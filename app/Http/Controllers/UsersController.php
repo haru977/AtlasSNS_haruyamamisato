@@ -68,4 +68,19 @@ class UsersController extends Controller
     {
         return $this->hasMany(Post::class);
     }
+
+        // ユーザーアイコンにリンクを設定
+    public function showProfile($id)
+    {
+        $user = User::findOrFail($id);
+        return view('users.otherprofile', compact('user'));
+    }
+
+        // 押されたアイコンのユーザーのプロフィールを表示
+    public function otherProfile($id)
+    {
+        $user = User::findOrFail($id);
+        $posts = $user->posts()->latest()->get();
+        return view('users.otherprofile', compact('user' , 'posts'));
+    }
 }
