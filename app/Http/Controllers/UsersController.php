@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    //
-    public function profile(){
+    public function profile()
+    {
         return view('users.profile');
     }
 
@@ -63,7 +63,6 @@ class UsersController extends Controller
             'mail' => $request->input('mail'),
             'bio' => $request->input('bio'),];
 
-
         // パスワードが入力されている場合のみハッシュ化して更新
         if ($request->filled('password')) {
             $data['password'] = Hash::make($request->password);
@@ -82,7 +81,6 @@ class UsersController extends Controller
 
         return redirect('/top');
     }
-
 
     //投稿者情報受け取りのためリレーション設定
     //1対多の「多」と結合（一人の投稿者が複数の投稿をすることができる）
