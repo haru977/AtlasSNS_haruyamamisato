@@ -1,5 +1,4 @@
 @extends('layouts.login')
-
 @section('content')
 <!-- 検索機能 -->
 <div class="container">
@@ -17,9 +16,9 @@
     @foreach ($users as $user)
     @if($user->id != Auth::id()) <!-- ログインユーザーのIDを除外 -->
     <tr>
-        <td>{{ $user->username }}</td>
         <td>
-        <img src="{{ asset('storage/'.Auth::user()->images) }}" width="25" height="25">
+        <img src="{{ asset('storage/'. $user->images) }}" width="25" height="25">
+        {{ $user->username }}
         @if(Auth::user()->following->contains($user)) <!-- フォローしているかどうかでボタンの切り替え -->
             <form action="{{ route('users.unfollow', $user) }}" method="post">
                 @csrf
@@ -40,6 +39,4 @@
     @endforeach
     </div>
 </div>
-
-
 @endsection
