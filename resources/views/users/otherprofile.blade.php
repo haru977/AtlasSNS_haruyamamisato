@@ -31,7 +31,6 @@
                     </a>
                     <strong>{{ $post->user->username }}</strong>: {{ $post->post }}
                     <span>{{ $post->created_at->format('Y-m-d H:i:s') }}</span>
-
                 </li>
             @endforeach
         </ul>
