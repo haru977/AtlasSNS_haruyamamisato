@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -30,37 +31,58 @@ class UsersController extends Controller
         return view('users.search',['users'=>$users, 'keyword' => $keyword]);
     }
 
-    // プロフィール編集機能
+    // プロフィール編集フォームの表示
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+
+        // 現在ログインしているユーザーが他のユーザーのプロファイルを編集できないようにチェック
+        if (Auth::id() != $user->id) {
+            return redirect('/top')->with('error', 'You are not authorized to edit this profile.');
+        }
+
+        return view('profile.edit', compact('user'));
+    }
+
+    // プロフィール更新処理
     public function update(Request $request)
     {
-        if($request->isMethod('post')){
-            // バリデーション設定
-            $request->validate([
-                'username' => 'required|between:2,12',
-                'mail' => 'required|unique:users|between:5,40',
-                'password' => 'required|alpha_num|between:8,20',
-                'password-confirmation' => 'required|alpha_num|between:8,20|same:password',
-                'bio' => 'max:150',
-                'photo' => 'mimes:jpg,png,bmp,gif,svg',
-            ]);
-
-        $id = $request->input('id');
-        $username = $request->input('username');
-        $mail = $request->input('mail');
-        $password = $request->input('password');
-        $bio = $request->input('bio');
-        $icon = $request->input('images');
-
-        User::where('id',$id)->update([
-            'username' => $username,
-            'mail' => $mail,
-            'password' => $password,
-            'bio' => $bio,
-            'images' => $icon,
+        // バリデーション設定
+        $request->validate([
+            'username' => 'required|between:2,12',
+            'mail' => 'required|email|between:5,40|unique:users,mail,' . Auth::id(),
+            'password' => 'nullable|alpha_num|between:8,20|confirmed',
+            'bio' => 'max:150',
+            'images' => 'nullable|mimes:jpg,png,bmp,gif,svg|max:2048',
         ]);
+
+        // 更新データの準備
+        // $data = $request->only('username', 'mail', 'bio');
+        $data = [
+            'username' => $request->input('username'),
+            'mail' => $request->input('mail'),
+            'bio' => $request->input('bio'),];
+
+
+        // パスワードが入力されている場合のみハッシュ化して更新
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        // 画像がアップロードされた場合の処理
+        if ($request->hasFile('images')) {
+        $filename = $request->images->getClientOriginalName();
+        $imagePath = $request->images->storeAs('profile_images' , $filename ,'public');
+        $data['images'] = $imagePath;
+        }
+
+        // ユーザー情報の更新
+        $user = Auth::user();
+        $user->update($data);
+
+        return redirect('/top');
     }
-       return redirect('/top');
-    }
+
 
     //投稿者情報受け取りのためリレーション設定
     //1対多の「多」と結合（一人の投稿者が複数の投稿をすることができる）
