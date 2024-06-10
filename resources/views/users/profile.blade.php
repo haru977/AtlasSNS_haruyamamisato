@@ -1,43 +1,39 @@
 @extends('layouts.login')
-
 @section('content')
-<div class="contaner">
+<div class="container">
     <div class="update">
-        {!! Form::open(['url'=>'/profile/update'])!!}
+        {!! Form::open(['url' => route('profile.update'), 'files' => true]) !!}
         @csrf
-        {{Form::hidden('id',Auth::user()->id)}}
-        <img class="update-icon" src="images/icon1.png">
+        {{ Form::hidden('id', Auth::user()->id) }}
+        <img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25">
         <div class="update-form">
             <div class="update-block">
-                <label for="name">user name</label>
-                <input type="text" name="username" value="{{Auth::user()->username}}">
+                <label for="name">ユーザー名</label>
+                <input type="text" name="username" value="{{ Auth::user()->username }}">
             </div>
             <div class="update-block">
-                <label for="mail">mail address</label>
-                <input type="email" name="mail" value="{{Auth::user()->mail}}">
+                <label for="mail">メールアドレス</label>
+                <input type="email" name="mail" value="{{ Auth::user()->mail }}">
             </div>
             <div class="update-block">
-                <label for="pass">password</label>
+                <label for="pass">パスワード</label>
                 <input type="password" name="password">
             </div>
             <div class="update-block">
-                <label for="confirm-pass">password confirm</label>
-                <input type="password" name="confirm_password">
+                <label for="confirm-pass">パスワード確認</label>
+                <input type="password" name="password_confirmation">
             </div>
             <div class="update-block">
-                <label for="name">bio</label>
-                <input type="text" name="bio" value="{{Auth::user()->bio}}">
+                <label for="name">自己紹介</label>
+                <input type="text" name="bio" value="{{ Auth::user()->bio }}">
             </div>
             <div class="update-block">
-                <label for="name">icon image</label>
+                <label for="name">アイコン画像</label>
                 <input type="file" name="images">
             </div>
-            <input type="submit" class="btn btn-danger">
-            {{Form::token()}}
-            {!! Form::close()!!}
+            <input type="submit" class="btn btn-danger" value="更新">
+            {!! Form::close() !!}
         </div>
     </div>
 </div>
-
-
 @endsection
