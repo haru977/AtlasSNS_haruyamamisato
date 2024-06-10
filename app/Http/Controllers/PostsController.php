@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -13,7 +14,7 @@ class PostsController extends Controller
 public function index()
 {
     // 投稿の一覧表示
-    $posts = Post::all();//投稿データを取得
+    $posts = Post::with('user')->get();//投稿データを取得
     return view('posts.index', compact('posts'));//投稿データをビューに渡す
 }
 
