@@ -4,7 +4,7 @@
 <div class="container">
     {!! Form::open(['url' => '/posts']) !!}
     <div class="post">
-        <img src="{{ asset('storage/'.Auth::user()->images) }}" width="25" height="25">
+    <img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25">
         {!! Form::text('content',null,['required','class' => 'form-control','placeholder' => '投稿内容を入力してください'])!!}
         <div class = "button">
             <button type = "submit"><img class="post-btn" src="images/post.png" width="25" height="25"></button>
@@ -17,9 +17,9 @@
     <!-- 投稿内容一覧表示のためのループを開始↓ -->
         @foreach ($posts as $post)
         <li>
-        <img src="{{ asset('storage/'.Auth::user()->images) }}" width="25" height="25">
+        <img src="{{ asset('storage/' . $post->user->images) }}" alt="{{ $post->user->username }}'s Icon" width="25" height="25">
         <!-- postカラムの値（投稿内容）を表示↓ -->
-        <strong>{{ $post->user->username }}</strong>: {{ $post->post }}
+        <strong>{{ $post->user_id }}</strong>: {{ $post->post }}
         <span>{{ $post->created_at->format('Y-m-d H:i:s') }}</span>
         <!-- ログインユーザーの投稿にのみ編集、削除ボタンを表示 -->
         @if($post->user_id === Auth::user()->id)
