@@ -13,8 +13,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -26,7 +26,7 @@ time, mark, audio, video {
 	text-decoration: none;;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -47,4 +47,40 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/* ログイン画面 */
+
+header{
+	text-align: center;
+}
+
+p.atlas, p.register, .username, .mail, .password, .password-confirmation, a{
+	color: white;
+}
+
+.login-container, .register-container{
+	color:white;
+	height:100vh;
+	background-color: #186Ac9;
+	background-image: linear-gradient(0deg, #ffff11 20%,#186Ac9  90%);
+	padding:50px 0;
+}
+
+.login-block, .register-block{
+	position: relative;
+	text-align: center;
+	width:250px;
+	height:350px;
+	background-color: rgba(18,1,1,0.2);
+	border-radius: 10px;
+	margin:0 auto;
+}
+
+.login-form-mail, .login-form-pass{
+	height: 65px;
+}
+
+.login-btn{
+	text-align: right;
 }
