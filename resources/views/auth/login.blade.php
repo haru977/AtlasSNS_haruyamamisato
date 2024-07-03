@@ -11,7 +11,8 @@
             <div class="login-btn">
             <button type="input" class="btn btn-danger">{{ Form::submit('ログイン') }}</button>
             </div>
-            <a href="/register"><p>新規ユーザーの方はこちら</p></a>
+            <div class="register-page"></div>
+            <a class="register" href="/register">新規ユーザーの方はこちら</a>
         </div>
     </div>
 </div>
