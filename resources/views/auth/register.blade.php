@@ -19,8 +19,8 @@
         {{ Form::text('password_confirmation',null,['class' => 'input']) }}
     </div>
     <div class="submit">
-        <button type="input" class="btn btn-danger">{{ Form::submit('登録') }}</button></div>
-    <p><a href="/login">ログイン画面へ戻る</a></p>
+        <button type="input" class="btn btn-danger">{{ Form::submit('新規登録') }}</button></div>
+    <a class="register" href="/login">ログイン画面に戻る</a>
     </div>
 </div>
 
