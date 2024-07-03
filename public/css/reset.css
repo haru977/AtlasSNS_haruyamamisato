@@ -55,8 +55,12 @@ header{
 	text-align: center;
 }
 
-p.atlas, p.register, .username, .mail, .password, .password-confirmation, a{
+p.atlas, p.register, .username, .mail, .password, .password-confirmation, a.register{
 	color: white;
+}
+
+a{
+	text-decoration: underline;
 }
 
 .login-container, .register-container{
@@ -77,10 +81,50 @@ p.atlas, p.register, .username, .mail, .password, .password-confirmation, a{
 	margin:0 auto;
 }
 
-.login-form-mail, .login-form-pass{
-	height: 65px;
+p.home{
+	padding: 10px;
 }
 
-.login-btn{
+.login-form-mail, .login-form-pass, .username, .mail, .password, .password-confirmation{
+	text-align: left;
+	padding: 10px;
+}
+
+a.register{
+	position: absolute;
+	bottom: 20px;
+	left: 30px;
+}
+
+.login-btn, .submit{
 	text-align: right;
+}
+
+/* 入力フォームのデザイン設定 */
+input[type="text"]{
+	border-radius: 5px;
+	border: none;
+	width: 230px;
+}
+
+input[type="password"]{
+	border-radius: 5px;
+	border: none;
+	width: 230px;
+}
+
+/* ボタンのデザイン設定
+（inputタグの初期スタイルをリセット） */
+input[type="submit"] {
+	color: white;
+	width: 80px;
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
