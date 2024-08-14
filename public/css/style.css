@@ -9,17 +9,31 @@ header{
 }
 
 /* アコーディオンメニュー */
-.nav-menu{
-    display: none;
-}
-
 img.arrow{
     width: 10px;
     height: 20px;
 }
 
-.flipped {
-    transform: scaleY(-1);
+/* ヘッダーハンバーガーメニュー */
+.nav-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.nav-list{
+    width: 200px;
+    height: 60px;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.arrow.rotate {
+    transform: rotate(180deg);
 }
 
 /* main content */
