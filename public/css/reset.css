@@ -55,15 +55,16 @@ header{
 	text-align: center;
 }
 
-p.atlas, p.register, .username, .mail, .password, .password-confirmation, a.register{
+p.atlas, p.register, .username, .mail, .password, .password-confirmation, a.register, .added, .added-btn{
 	color: white;
 }
 
 a{
 	text-decoration: underline;
+	color: white;
 }
 
-.login-container, .register-container{
+.login-container, .register-container, .added-container{
 	color:white;
 	height:100vh;
 	background-color: #186Ac9;
@@ -79,6 +80,21 @@ a{
 	background-color: rgba(18,1,1,0.2);
 	border-radius: 10px;
 	margin:0 auto;
+}
+
+.added{
+	position: relative;
+	text-align: center;
+	width:260px;
+	height:245px;
+	background-color: rgba(18,1,1,0.2);
+	border-radius: 10px;
+	margin:0 auto;
+	padding-top: 10px;
+}
+
+p.added-text{
+	margin: 10px;
 }
 
 p.home{
