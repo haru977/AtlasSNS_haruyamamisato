@@ -3,22 +3,32 @@
 //     alert('OK!');
 //   });
 
-// アコーディオンメニュー（矢印をクリックして反転）
-$(document).ready(function() {
-    // p.nav-btn要素をクリックしたときのイベント
-    $("p.nav-btn").click(function() {
-        $(this).toggleClass('flipped');
+// 矢印の反転
+$(function() {
+    $('.nav-btn').click(function() {
+        var arrow = $(this).find('.arrow');
+
+        // 矢印を反転（回転）させる
+        arrow.toggleClass('rotate');
+
+        // メニューをトグル
+        $('.nav-menu').toggle();
+    });
+
+    // メニューの外をクリックすると閉じる
+    $(document).click(function(event) {
+        if (!$(event.target).closest('.nav-btn, .nav-menu').length) {
+            $('.nav-menu').hide();
+
+            // 矢印を元に戻す
+            var arrow = $('.nav-btn').find('.arrow');
+            arrow.removeClass('rotate');
+        }
     });
 });
 
-// アコーディオンメニュー(矢印を押したら表示)
-$(function (){
-    $(".nav-btn").on("click", function(){
-        $(this).next().slideToggle(300);
-        $(this).toggleClass("open",300);
-    });
-});
 
+// 編集モーダル
 $(function(){
     // 編集ボタン(class="js-modal-open")が押されたら発火
     $('.js-modal-open').on('click',function(){
@@ -47,9 +57,9 @@ $(function(){
 // 削除ボタンの反転
 $(function() {
     $('a img').hover(
-        function() 
+        function()
         {$(this).attr('src', $(this).attr('src').replace('trash', 'trash-h'));},
-        function() 
+        function()
         {
             if (!$(this).hasClass('current')) {
                 $(this).attr('src', $(this).attr('src').replace('trash-h', 'trash'));
