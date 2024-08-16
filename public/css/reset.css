@@ -53,15 +53,10 @@ table {
 
 header{
 	text-align: center;
-	padding: 30px;
+	padding: 10px;
 }
 
-p.atlas, p.register, .username, .mail, .password, .password-confirmation, a.register, .added, .added-btn{
-	color: white;
-}
-
-a{
-	text-decoration: underline;
+a, p.atlas, p.register, .username, .mail, .password, .password-confirmation, a.register, .added, .added-btn{
 	color: white;
 }
 
@@ -81,7 +76,7 @@ a{
 	background-color: rgba(18,1,1,0.2);
 	border-radius: 10px;
 	margin:0 auto;
-	padding-top: 20px;
+	padding: 10px;
 }
 
 .added{
@@ -105,13 +100,17 @@ p.home{
 
 .login-form-mail, .login-form-pass, .username, .mail, .password, .password-confirmation{
 	text-align: left;
-	padding: 10px;
+	padding: 10px 0;
 }
 
-a.register{
+.register-page, .login-page{
 	position: absolute;
-	bottom: 20px;
 	left: 30px;
+	bottom: 10px;
+}
+
+a.register {
+	text-decoration: underline;
 }
 
 .login-btn, .submit{
