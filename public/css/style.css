@@ -6,6 +6,7 @@ body{
 /* header */
 header{
     background:#186AC9;
+    padding: 10px;
 }
 
 /* ドロップダウンメニュー */
@@ -102,4 +103,52 @@ img.arrow{
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60%;
+}
+
+/* トップページヘッダー */
+.top-page{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.head-container{
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	justify-content: flex-end;
+
+}
+
+/* サイドバー */
+.username{
+	margin-right: 20px
+}
+
+.side-bar{
+    min-height: 100vh;
+}
+
+.following-count{
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.side-bar-btn a{
+    display: inline-block;
+    background-color: #186AC9;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.side-bar-line{
+    border-top: 1px solid #727272;
+    padding: 10px;
+    text-align: center;
+}
+
+.confirm{
+    padding: 10px;
 }

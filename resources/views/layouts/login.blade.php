@@ -50,23 +50,22 @@
         <div id="container">
             @yield('content')
         </div >
-        <div id="side-bar">
-            <div id="confirm">
+        <div class="side-bar" id="side-bar">
+            <div class="confirm" id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
+                <p>フォロー数<span class="following-count">{{ Auth::user()->following()->get()->count() }}名</span></p>
                 <!-- フォロー数の表示 -->
-                <p>{{ Auth::user()->following()->get()->count() }}名</p>
                 </div>
-                <button type="button" class="btn btn-primary"><a href="/follow-list">フォローリスト</a></button>
+                <p class="side-bar-btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
-                <p>フォロワー数</p>
                 <!-- フォロワー数の表示 -->
-                <p>{{ Auth::user()->follower()->get()->count() }}名</p>
+                <p>フォロワー数<span class="following-count">{{ Auth::user()->follower()->get()->count() }}名</span></p>
                 </div>
-                <button type="button" class="btn btn-primary"><a href="/follower-list">フォロワーリスト</a></button>
+                <p class="side-bar-btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <button type="button" class="btn btn-primary"><a href="/search">ユーザー検索</a></button>
+            <div class="side-bar-line"><p class="side-bar-btn"><a href="/search">ユーザー検索</a></p>
+        </div>
         </div>
     </div>
     <footer>
