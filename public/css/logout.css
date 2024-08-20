@@ -8,3 +8,107 @@ body{
     height: 100%;
     background: #186AC9;
 }
+
+/* ログイン画面、新規登録画面 */
+
+header{
+	text-align: center;
+	padding: 10px;
+}
+
+a, p.atlas, p.register, .username, .mail, .password, .password-confirmation, a.register, .added, .added-btn{
+	color: white;
+}
+
+.login-container, .register-container, .added-container{
+	color:white;
+	height:100vh;
+	background-color: #186Ac9;
+	background-image: linear-gradient(0deg, #ffff11 20%,#186Ac9  90%);
+	padding:50px 0;
+}
+
+.login-block, .register-block{
+	position: relative;
+	text-align: center;
+	width:250px;
+	min-height:350px;
+	background-color: rgba(18,1,1,0.2);
+	border-radius: 10px;
+	margin:0 auto;
+	padding: 20px;
+}
+
+.added{
+	position: relative;
+	text-align: center;
+	width:260px;
+	height:245px;
+	background-color: rgba(18,1,1,0.2);
+	border-radius: 10px;
+	margin:0 auto;
+	padding-top: 10px;
+}
+
+p.added-text{
+	margin: 10px;
+}
+
+p.home{
+	padding: 10px;
+}
+
+.login-form-mail, .login-form-pass, .username, .mail, .password, .password-confirmation{
+	text-align: left;
+	padding: 10px 0;
+}
+
+.login-block label, .register-block label{
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.register-page,
+.login-page{
+    margin-top: 10px;
+
+}
+
+a.register {
+	text-decoration: underline;
+}
+
+.login-btn, .submit{
+	text-align: right;
+}
+
+/* 入力フォームのデザイン設定 */
+input[type="text"]{
+	border-radius: 5px;
+	border: none;
+	width: 100%;
+}
+
+input[type="password"]{
+	border-radius: 5px;
+	border: none;
+	width: 100%;
+}
+
+/* 青ボタンのデザイン設定
+（inputタグの初期スタイルをリセット） */
+input[type="submit"] {
+	color: white;
+	width: 80px;
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+
