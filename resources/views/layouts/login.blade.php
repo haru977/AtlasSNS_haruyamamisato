@@ -30,7 +30,7 @@
             <div class="head-container">
                 <div class="username">
                     <!-- ログインユーザー名表示 -->
-                    <p>{{ Auth::user()->username }} さん</p>
+                    <p class="username">{{ Auth::user()->username }} さん</p>
                 </div>
                 <div class="accordion">
                     <p class="nav-btn"><img src="images/arrow.png" class="arrow"></p>
