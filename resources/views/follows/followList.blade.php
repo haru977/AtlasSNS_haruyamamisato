@@ -2,25 +2,34 @@
 
 @section('content')
 <!-- フォローリスト -->
-<div class="container">
+<div class="follow-container">
     <!-- フォローユーザーアイコンの一覧表示 -->
-    <div class="icon-list">
-        @foreach($posts->unique('user_id') as $post)<!-- 重複するユーザーの排除(unique) -->
-        <a class="other-icon" href="{{ route('other.profile' , ['id' => $post->user->id]) }}">
-            <img src="{{ asset('storage/' . $post->user->images) }}" alt="{{ $post->user->username }}'s Icon" width="25" height="25">
-        </a>
-        @endforeach
+    <div class="follow-list">
+        <ul class="icon-list">
+            <li><p class="title">フォローリスト</p></li>
+            <li class="follow-icon">
+                <!-- 重複するユーザーの排除(unique) -->
+                @foreach($posts->unique('user_id') as $post)
+                <a class="other-icon" href="{{ route('other.profile' , ['id' => $post->user->id]) }}">
+                <img src="{{ asset('storage/' . $post->user->images) }}" alt="{{ $post->user->username }}'s Icon" width="25" height="25">
+                </a>
+                @endforeach
+            </li>
+        </ul>
         <!-- フォローユーザーの一覧表示 -->
         @foreach($posts as $post)
-        <ul class="list-group">
-                <li class="list-group-item">
-                    <a class="other-profile" href="{{ route('other.profile' , ['id' => $post->user->id]) }}"><!-- 相手のプロフィールページへの遷移 -->
-                    <img src="{{ asset('storage/'. $post->user->images) }}" width="25" height="25">
+        <ul class="posts">
+            <li class="posts-item">
+                <div class="posts-box">
+                    <!-- 相手のプロフィールページへの遷移 -->
+                    <a class="other-profile" href="{{ route('other.profile' , ['id' => $post->user->id]) }}">
+                        <img src="{{ asset('storage/'. $post->user->images) }}" width="25" height="25">
                     </a>
-                    <strong>{{ $post->user->username }}</strong>:
-                    {{ $post->post }}
-                    <span>{{ $post->created_at->format('Y-m-d H:i:s') }}</span>
-                </li>
+                    <span class="post-name">{{ $post->user->username }}</span>
+                    <span class="post-time">{{ $post->created_at->format('Y-m-d H:i:s') }}</span>
+                </div>
+                <p class="posts">{{ $post->post }}</p>
+            </li>
         </ul>
         @endforeach
     </div>

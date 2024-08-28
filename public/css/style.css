@@ -245,4 +245,15 @@ img.arrow{
     text-align: center;
 }
 
+/* フォローリスト
+フォロワーリスト */
+.icon-list{
+    display: flex;
+    padding: 10px 40px;
+    border-bottom: 3px solid #9d9c9c;
+}
+
+.title{
+    padding: 5px 30px
+}
 
