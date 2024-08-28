@@ -257,3 +257,41 @@ img.arrow{
     padding: 5px 30px
 }
 
+/* ユーザー検索 */
+.search-box{
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    border-bottom: 3px solid #9d9c9c;
+}
+
+.search-btn{
+    border: none;
+    background: none;
+    border-radius: 5px;
+}
+
+.search-block{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+}
+
+.search-icon{
+    text-align: end;
+    width: 30%;
+    padding: 0px 20px;
+}
+
+.search-name{
+    width: 20%;
+}
+
+.search-follow{
+    width: 50%;
+}
+
+.btn-info{
+    color: #fff;
+}

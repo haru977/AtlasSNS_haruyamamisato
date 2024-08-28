@@ -8,6 +8,9 @@
         <p class="register">新規ユーザー登録</p>
         <div class="username">{{ Form::label('ユーザー名') }}
         {{ Form::text('username',null,['class' => 'input']) }}
+        @if ($errors->has('username'))
+        <span class="error-message">{{ $errors->first('username') }}</span>
+        @endif
         </div>
         <div class="mail">{{ Form::label('メールアドレス') }}
         {{ Form::text('mail',null,['class' => 'input']) }}
@@ -21,7 +24,8 @@
         <div class="submit">
         <button type="input" class="btn btn-danger">{{ Form::submit('新規登録') }}</button>
         </div>
-        <div class="login-page"><a class="register" href="/login">ログイン画面に戻る</a>
+        <div class="login-page">
+            <p><a class="register" href="/login">ログイン画面に戻る</a></p>
         </div>
     </div>
 </div>
