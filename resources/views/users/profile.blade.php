@@ -1,11 +1,14 @@
+
 @extends('layouts.login')
 @section('content')
-<div class="container">
-    <div class="update">
+<div class="update-container">
         {!! Form::open(['url' => route('profile.update'), 'files' => true]) !!}
         @csrf
         {{ Form::hidden('id', Auth::user()->id) }}
-        <img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25">
+    <div class="update">
+        <div class="icon">
+            <img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25">
+        </div>
         <div class="update-form">
             <div class="update-block">
                 <label for="name">ユーザー名</label>
@@ -29,11 +32,13 @@
             </div>
             <div class="update-block">
                 <label for="name">アイコン画像</label>
-                <input type="file" name="images">
+                <input class="new-icon" type="file" name="images">
             </div>
-            <input type="submit" class="btn btn-danger" value="更新">
             {!! Form::close() !!}
         </div>
+    </div>
+    <div class="update-btn">
+        <input type="submit" class="btn btn-danger" value="更新">
     </div>
 </div>
 @endsection

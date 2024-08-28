@@ -5,7 +5,7 @@
     {!! Form::open(['url' => '/posts']) !!}
     <div class="post">
         <div class="post-form">
-            <div class="update-icon"><img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25"></div>
+            <div class="top-icon"><img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25"></div>
             <div class="post-text">{!! Form::text('content',null,['required','class' => 'form-control','placeholder' => '投稿内容を入力してください'])!!}</div>
         </div>
         <div class = "post-btn">
