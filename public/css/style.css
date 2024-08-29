@@ -103,6 +103,17 @@ img.arrow{
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60%;
+    text-align: center;
+}
+
+.modal_post{
+    width: 80%;
+}
+
+.modal-edit{
+    display: block;
+    text-align: center;
+    padding: 10px;
 }
 
 /* トップページヘッダー */

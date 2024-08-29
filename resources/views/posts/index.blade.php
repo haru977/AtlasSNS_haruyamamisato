@@ -45,10 +45,11 @@
             <form action="{{ route('posts.update',['id' => $post->id]) }}" method="post">
                 <textarea name="edit" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="{{ $post->id }}">
-                <input type="submit" value="更新">
+                <div class="modal-edit">
+                    <input type="image" class="modal-edit-btn" value="更新" src="images/edit.png" width="25" height="25">
+                </div>
                 {{ csrf_field() }}<!-- CSRF保護機能 -->
             </form>
-            <a class="js-modal-close" href="">閉じる</a>
         </div>
     </div>
     </ul>
