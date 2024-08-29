@@ -281,7 +281,7 @@ img.arrow{
 .search-icon{
     text-align: end;
     width: 30%;
-    padding: 0px 20px;
+    padding: 10px 20px;
 }
 
 .search-name{
@@ -294,6 +294,10 @@ img.arrow{
 
 .btn-info{
     color: #fff;
+}
+
+.search-word{
+    margin: auto;
 }
 
 /* 他ユーザーのプロファイルページ */

@@ -12,11 +12,11 @@
                 </button>
             </div>
         </form>
-    </div>
-    <div class="search-word"><!-- 検索ワードの表示 -->
+        <div class="search-word"><!-- 検索ワードの表示 -->
         @if(isset($keyword))
-        <p>検索ワード: {{ $keyword }}</p>
+        <p>検索ワード : {{ $keyword }}</p>
         @endif
+        </div>
     </div>
     <div class="search-user">
         <!-- 検索後の表示 -->
@@ -28,7 +28,7 @@
                     <img src="{{ asset('storage/'. $user->images) }}" width="25" height="25">
                 </div>
                 <p class="search-name">{{ $user->username }}</p>
-                <!-- フォローしているかどうかでボタンの切り替え -->
+            <!-- フォローしているかどうかでボタンの切り替え -->
                 <div class="search-follow">
                 @if(Auth::user()->following->contains($user))
                     <form action="{{ route('users.unfollow', $user) }}" method="post">
@@ -42,11 +42,11 @@
                     <button type="submit" class="btn btn-info">フォローする</button>
                     </form>
                 @endif
+                </div>
             </div>
         </div>
-    </div>
-    @endif
-    @endforeach
+        @endif
+        @endforeach
     </div>
 </div>
 @endsection
