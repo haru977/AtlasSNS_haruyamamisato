@@ -14,7 +14,7 @@ class PostsController extends Controller
 public function index()
 {
     // 投稿の一覧表示
-    $posts = Post::with('user')->get();//投稿データを取得
+    $posts = Post::orderBy('created_at', 'desc')->get();//投稿データを取得
     return view('posts.index', compact('posts'));//投稿データをビューに渡す
 }
 
@@ -59,7 +59,7 @@ public function showfollow(){
     // フォローしているユーザーのidを取得
     $following_id = Auth::user()->following()->pluck('followed_id');
     // フォローしているユーザーのidを元に投稿内容を取得
-    $posts = Post::with('user')->whereIn('user_id', $following_id)->get();
+    $posts = Post::orderBy('created_at','desc')->whereIn('user_id', $following_id)->get();
     // dd("$following_id");
     return view('follows.followlist', compact('posts'));
     }
@@ -69,7 +69,7 @@ public function showfollower(){
     // フォローされたユーザーのidを取得
     $follower_id = Auth::user()->follower()->pluck('following_id');
     // フォローされたユーザーのidを元に投稿内容を取得
-    $posts = Post::with('user')->whereIn('user_id', $follower_id)->get();
+    $posts = Post::orderBy('created_at','desc')->whereIn('user_id', $follower_id)->get();
     // dd("$follower_id");
     return view('follows.followerlist', compact('posts'));
     }
