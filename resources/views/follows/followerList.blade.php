@@ -21,7 +21,7 @@
             <li class="posts-item">
                 <div class="posts-box">
                     <!-- 相手のプロフィールページへの遷移 -->
-                    <a class="other-profile" href="{{ route('other.profile' , ['id' => $post->user->id]) }}">
+                    <a class="other-profile-icon" href="{{ route('other.profile' , ['id' => $post->user->id]) }}">
                         <img src="{{ asset('storage/' . $post->user->images) }}" width="25" height="25">
                     </a>
                     <span class="post-name">{{ $post->user->username }}</span>

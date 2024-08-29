@@ -295,3 +295,43 @@ img.arrow{
 .btn-info{
     color: #fff;
 }
+
+/* 他ユーザーのプロファイルページ */
+.other-profile{
+    display: flex;
+    width: 100%;
+    border-bottom: 3px solid #9d9c9c;
+    padding: 10px;
+    padding-left: 5%;
+}
+
+.other-icon{
+    padding: 10px;
+}
+
+.profile-block{
+    padding-top: 10px;
+    width: 100%;
+}
+
+.other-data{
+    display: flex;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.name-data,
+.bio-data{
+    width: 30%;
+}
+
+.other-name,
+.other-bio{
+    width: 70%;
+}
+
+.other-btn{
+    width: 30%;
+    margin: auto;
+    text-align: end;
+}
