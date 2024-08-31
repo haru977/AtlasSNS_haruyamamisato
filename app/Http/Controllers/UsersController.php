@@ -101,6 +101,6 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $posts = $user->posts()->latest()->get();
-        return view('users.otherprofile', compact('user' , 'posts'));
+        return view('follows.otherprofile', compact('user' , 'posts'));
     }
 }

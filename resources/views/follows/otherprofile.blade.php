@@ -4,7 +4,7 @@
     <!-- ユーザープロファイル -->
     <div class="other-profile">
         <div class="other-icon">
-            <img src="{{ asset('storage/' . $user->images) }}" alt="{{ $user }}" width="25" height="25">
+            <a><img src="{{ asset('storage/'. $user->images) }}" alt="{{ $user }}" width="25" height="25"></a>
         </div>
         <div class="profile-block">
             <div class="other-data">
