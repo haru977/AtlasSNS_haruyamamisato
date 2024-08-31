@@ -60,8 +60,17 @@ img.arrow{
 }
 
 .nav-list:nth-child(2) a{
-    background: rgb(0, 2, 115);
+    background: rgb(2, 4, 127);
     color: white;
+}
+
+.nav-list:hover{
+    background-color: #bfbdbd;
+}
+
+.nav-list:nth-child(2) a:hover{
+    background: rgb(2, 18, 81);
+    color: #9d9c9c;
 }
 
 /* main content */
