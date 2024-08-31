@@ -1,3 +1,4 @@
+
 @extends('layouts.login')
 @section('content')
 <!-- フォロワーリスト -->
@@ -8,9 +9,9 @@
             <li><p class="title">フォロワーリスト</p></li>
             <li class="follower-icon">
                 <!-- 重複するユーザーの排除(unique) -->
-                @foreach($posts->unique('user_id') as $post)
-                <a class="other-icon" href="{{ route('other.profile' , ['id' => $post->user->id]) }}">
-                <img src="{{ asset('storage/'. $post->user->images) }}" alt="{{ $post->user->username }}'s Icon" width="25" height="25">
+                @foreach($follower_users->unique('id') as $user)
+                <a class="other-icon" href="{{ route('other.profile' , ['id' => $user->id]) }}">
+                <img src="{{ asset('storage/'. $user->images) }}" alt="{{ $user->username }}'s Icon" width="25" height="25">
                 </a>
                 @endforeach
             </li>

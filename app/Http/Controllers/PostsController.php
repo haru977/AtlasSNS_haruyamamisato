@@ -60,8 +60,10 @@ public function showfollow(){
     $following_id = Auth::user()->following()->pluck('followed_id');
     // フォローしているユーザーのidを元に投稿内容を取得
     $posts = Post::orderBy('created_at','desc')->whereIn('user_id', $following_id)->get();
+    // フォロワーのユーザー情報を取得
+    $following_users = User::whereIn('id', $following_id)->get();
     // dd("$following_id");
-    return view('follows.followlist', compact('posts'));
+    return view('follows.followlist', compact('posts','following_users'));
     }
 
     // フォロワーリスト
@@ -70,8 +72,9 @@ public function showfollower(){
     $follower_id = Auth::user()->follower()->pluck('following_id');
     // フォローされたユーザーのidを元に投稿内容を取得
     $posts = Post::orderBy('created_at','desc')->whereIn('user_id', $follower_id)->get();
+    // フォロワーのユーザー情報を取得
+    $follower_users = User::whereIn('id', $follower_id)->get();
     // dd("$follower_id");
-    return view('follows.followerlist', compact('posts'));
+    return view('follows.followerlist', compact('posts', 'follower_users'));
     }
 }
-
