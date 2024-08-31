@@ -25,7 +25,7 @@
     <header>
         <div class="top-page">
             <div class="atlas-icon">
-            <h1><a href="/top"><img src="images/atlas.png" class="atlas-icon" width="80"></a></h1>
+            <h1><a href="/top"><img src="{{ asset('storage/profile_images/atlas.png') }}" class="atlas-icon" width="80"></a></h1>
             </div>
             <div class="head-container">
                 <div class="username">
@@ -33,7 +33,7 @@
                     <p class="username">{{ Auth::user()->username }} さん</p>
                 </div>
                 <div class="accordion">
-                    <p class="nav-btn"><img src="images/arrow.png" class="arrow"></p>
+                    <p class="nav-btn"><img src="{{ asset('storage/profile_images/arrow.png') }}" class="arrow"></p>
                     <ul class="nav-menu">
                         <li class="nav-list"><a href="/top">HOME</a></li>
                         <li class="nav-list"><a href="/profile">プロフィール編集</a></li>
