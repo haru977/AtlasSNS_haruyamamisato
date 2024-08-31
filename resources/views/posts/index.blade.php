@@ -8,14 +8,14 @@
             <div class="top-icon"><img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25"></div>
             <div class="post-text">{!! Form::text('content',null,['required','class' => 'form-control','placeholder' => '投稿内容を入力してください'])!!}</div>
         </div>
-        <div class = "post-btn">
-            <a class="post-btn" type = "submit"><img class="post-btn" src="images/post.png" width="25" height="25"></a>
+        <div class="post-btn">
+            <input class="post-btn" type="image" src="images/post.png" width="25" height="25">
         </div>
     </div>
     {!! Form::close() !!}
     <div class="posts-form">
         <ul class="posts">
-     <!-- 投稿内容一覧表示のためのループを開始↓ -->
+    <!-- 投稿内容一覧表示のためのループを開始↓ -->
         @foreach ($posts as $post)
             <li class="posts-item">
                 <div class="posts-box">
@@ -46,7 +46,7 @@
                 <textarea name="edit" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="{{ $post->id }}">
                 <div class="modal-edit">
-                    <input type="image" class="modal-edit-btn" value="更新" src="images/edit.png" width="25" height="25">
+                    <input type="image" class="modal-edit-btn" src="images/edit.png" width="25" height="25">
                 </div>
                 {{ csrf_field() }}<!-- CSRF保護機能 -->
             </form>
