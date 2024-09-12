@@ -34,11 +34,11 @@
                 <label for="name">アイコン画像</label>
                 <input class="new-icon" type="file" name="images">
             </div>
-            {!! Form::close() !!}
         </div>
     </div>
     <div class="update-btn">
         <input type="submit" class="btn btn-danger" value="更新">
     </div>
+    {!! Form::close() !!}
 </div>
 @endsection

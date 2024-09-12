@@ -9,7 +9,8 @@ return [
         'string' => ':attribute は最大 :max 文字までです',
     ],
     'unique' => ':attribute は既に使用されています',
-    // 他のバリデーションメッセージもここに追加できます
+
+    // 他のバリデーションメッセージ
     'attributes' => [
         'username' => 'ユーザー名',
         'mail' => 'メールアドレス',
