@@ -11,7 +11,14 @@
                 <!-- 重複するユーザーの排除(unique) -->
                 @foreach($follower_users->unique('id') as $user)
                 <a class="other-icon" href="{{ route('other.profile' , ['id' => $user->id]) }}">
-                <img src="{{ asset('storage/'. $user->images) }}" alt="{{ $user->username }}'s Icon" width="25" height="25">
+                @if($user->images === 'icon1.png')
+                            <!-- 画像が icon1.png の場合 -->
+                            <img src="{{ asset('images/icon1.png') }}" alt="{{ $user->username }}'s Icon" width="25" height="25">
+                        @else
+                            <!-- 更新された画像を表示 -->
+                            <img src="{{ asset('storage/' . $user->images) }}" alt="{{ $user->username }}'s Icon" width="25" height="25">
+                        @endif
+                </a>
                 </a>
                 @endforeach
             </li>

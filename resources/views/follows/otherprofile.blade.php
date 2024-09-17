@@ -4,7 +4,14 @@
     <!-- ユーザープロファイル -->
     <div class="other-profile">
         <div class="other-icon">
-            <a><img src="{{ asset('storage/'. $user->images) }}" alt="{{ $user }}" width="25" height="25"></a>
+            <a>
+                @if($user->images === 'icon1.png')
+                    <!-- 画像が icon1.png の場合 -->
+                    <img src="{{ asset('images/icon1.png') }}" alt="{{ $user->username }}'s Icon" width="25" height="25">
+                @else
+                    <!-- 更新された画像を表示 -->
+                    <img src="{{ asset('storage/' . $user->images) }}" alt="{{ $user->username }}'s Icon" width="25" height="25">
+                @endif</a>
         </div>
         <div class="profile-block">
             <div class="other-data">
