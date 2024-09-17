@@ -37,7 +37,6 @@
                 </div>
                 @endif
             </li>
-        @endforeach
         <!-- モーダルの中身 -->
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
@@ -52,6 +51,7 @@
             </form>
         </div>
     </div>
+    @endforeach
     </ul>
 </div>
 </div>

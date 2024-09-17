@@ -14,7 +14,17 @@ class PostsController extends Controller
 public function index()
 {
     // 投稿の一覧表示
-    $posts = Post::orderBy('created_at', 'desc')->get();//投稿データを取得
+
+    // ログインユーザーのIDを取得
+    $user_id = Auth::id();
+
+    // フォローしているユーザーのidを取得
+    $following_id = Auth::user()->following()->pluck('followed_id');
+
+    $posts = Post::whereIn('user_id', $following_id)
+    ->orWhere('user_id',$user_id)
+    ->orderBy('created_at', 'desc')->get();//投稿データを取得
+
     return view('posts.index', compact('posts'));//投稿データをビューに渡す
 }
 
