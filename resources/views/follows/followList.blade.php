@@ -29,7 +29,13 @@
                 <div class="posts-box">
                     <!-- 相手のプロフィールページへの遷移 -->
                     <a class="other-profile-icon" href="{{ route('other.profile' , ['id' => $post->user->id]) }}">
-                        <img src="{{ asset('storage/'. $post->user->images) }}" width="25" height="25">
+                    @if(empty($post->user->images) || $post->user->images === 'icon1.png')
+                    <!-- 画像が icon1.png の場合 -->
+                    <img src="{{ asset('images/icon1.png') }}" alt="Default Icon" width="25" height="25">
+                @else
+                    <!-- 更新された画像を表示 -->
+                    <img src="{{ asset('storage/' . $post->user->images) }}" alt="User Icon" width="25" height="25">
+                @endif
                     </a>
                     <span class="post-name">{{ $post->user->username }}</span>
                     <span class="post-time">{{ $post->created_at->format('Y-m-d H:i:s') }}</span>

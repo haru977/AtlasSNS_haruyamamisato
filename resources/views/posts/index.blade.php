@@ -27,7 +27,16 @@
         @foreach ($posts as $post)
             <li class="posts-item">
                 <div class="posts-box">
-                    <img src="{{ asset('storage/' . $post->user->images) }}" alt="{{ $post->user->username }}'s Icon" width="25" height="25">
+                <a>
+                <!-- 画像が空またはnullの場合、または画像が icon1.png の場合にデフォルトのアイコンを表示 -->
+                @if(empty($post->user->images) || $post->user->images === 'icon1.png')
+                    <!-- 画像が icon1.png の場合 -->
+                    <img src="{{ asset('images/icon1.png') }}" alt="Default Icon" width="25" height="25">
+                @else
+                    <!-- 更新された画像を表示 -->
+                    <img src="{{ asset('storage/' . $post->user->images) }}" alt="User Icon" width="25" height="25">
+                @endif
+                </a>
                 <!-- postカラムの値（投稿内容）を表示↓ -->
                     <span class="post-name">{{ $post->user->username }}</span>
                     <span class="post-time">{{ $post->created_at->format('Y-m-d H:i:s') }}</span>

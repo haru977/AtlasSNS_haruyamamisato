@@ -7,7 +7,13 @@
         {{ Form::hidden('id', Auth::user()->id) }}
     <div class="update">
         <div class="icon">
-            <img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25">
+        @if(empty(Auth::user()->images) || Auth::user()->images === 'icon1.png')
+                <!-- 画像が設定されていない、またはicon1.pngの場合デフォルト画像を表示 -->
+                <img class="update-icon" src="{{ asset('images/icon1.png') }}" alt="Default User Icon" width="25" height="25">
+            @else
+                <!-- 登録された画像を表示 -->
+                <img class="update-icon" src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25">
+            @endif
         </div>
         <div class="update-form">
             <div class="update-block">
