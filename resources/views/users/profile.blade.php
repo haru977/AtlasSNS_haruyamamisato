@@ -18,27 +18,57 @@
         <div class="update-form">
             <div class="update-block">
                 <label for="name">ユーザー名</label>
+                <div class="update-block-br">
                 <input type="text" name="username" value="{{ Auth::user()->username }}">
+                @if ($errors->has('username'))
+                <span class="error-message">{{ $errors->first('username') }}</span>
+                @endif
+                </div>
             </div>
             <div class="update-block">
                 <label for="mail">メールアドレス</label>
+                <div class="update-block-br">
                 <input type="email" name="mail" value="{{ Auth::user()->mail }}">
+                @if ($errors->has('mail'))
+                <span class="error-message">{{ $errors->first('mail') }}</span>
+                @endif
+                </div>
             </div>
             <div class="update-block">
                 <label for="pass">パスワード</label>
+                <div class="update-block-br">
                 <input type="password" name="password">
+                @if ($errors->has('password'))
+                <span class="error-message">{{ $errors->first('password') }}</span>
+                @endif
+                </div>
             </div>
             <div class="update-block">
                 <label for="confirm-pass">パスワード確認</label>
+                <div class="update-block-br">
                 <input type="password" name="password_confirmation">
+                @if ($errors->has('password'))
+                <span class="error-message">{{ $errors->first('password') }}</span>
+                @endif
+                </div>
             </div>
             <div class="update-block">
                 <label for="name">自己紹介</label>
+                <div class="update-block-br">
                 <input type="text" name="bio" value="{{ Auth::user()->bio }}">
+                @if ($errors->has('max'))
+                <span class="error-message">{{ $errors->first('max') }}</span>
+                @endif
+                </div>
             </div>
             <div class="update-block">
                 <label for="name">アイコン画像</label>
+                <div class="update-block-br">
                 <input class="new-icon" type="file" name="images">
+                @if ($errors->has('image'))
+                <span class="error-message">{{ $errors->first('image') }}</span>
+                @endif
+                </div>
             </div>
         </div>
     </div>

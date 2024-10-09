@@ -14,18 +14,18 @@
         </div>
         <div class="mail">{{ Form::label('メールアドレス') }}
         {{ Form::text('mail',null,['class' => 'input']) }}
-        @if ($errors->has('mail'))
-        <span class="error-message">{{ $errors->first('mail') }}</span>
+        @if ($errors->has('email'))
+        <span class="error-message">{{ $errors->first('email') }}</span>
         @endif
         </div>
         <div class="password">{{ Form::label('パスワード') }}
         {{ Form::password('password',null,['class' => 'input']) }}
-        </div>
-        <div class="password-confirmation">{{ Form::label('パスワード確認') }}
-        {{ Form::password('password_confirmation',null,['class' => 'input']) }}
         @if ($errors->has('password'))
         <span class="error-message">{{ $errors->first('password') }}</span>
         @endif
+        </div>
+        <div class="password-confirmation">{{ Form::label('パスワード確認') }}
+        {{ Form::password('password_confirmation',null,['class' => 'input']) }}
         </div>
         <div class="submit">
         <button type="input" class="btn btn-danger">{{ Form::submit('新規登録') }}</button>

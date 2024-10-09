@@ -240,31 +240,43 @@ img.arrow{
 }
 
 .update-block{
+    display: flex;
+    width: 100%;
     padding: 20px;
+}
+
+.error-message{
+    display: flex;
+    color: red;
+    font-size: 10px;
 }
 
 .update-form label{
     width: 35%;
 }
 
-.update-form input{
-    width: 45%;
+.update-block-br{
+    width:  100%;
+}
+
+.update-block-br input{
     background-color: #e7e7e7;
     border: solid;
     border-color: #bfbdbd;
+    margin-bottom: 5px;
+    width: 80%;
 }
 
 .new-icon{
-    background-color: #ffffff;
-    height: 100px;
-}
-
-.update-btn input{
-    width: 150px;
+    height: 80px;
 }
 
 .update-btn{
     text-align: center;
+}
+
+.update-btn input{
+    width: 150px;
 }
 
 /* フォローリスト

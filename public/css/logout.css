@@ -82,7 +82,15 @@ a.register {
 	text-align: right;
 }
 
+.error-message{
+    font-size: 15px;
+}
+
 /* 入力フォームのデザイン設定 */
+input {
+	margin-bottom: 10px;
+}
+
 input[type="text"]{
 	border-radius: 5px;
 	border: none;
