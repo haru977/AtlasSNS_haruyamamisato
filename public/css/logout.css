@@ -83,12 +83,12 @@ a.register {
 }
 
 .error-message{
-    font-size: 15px;
+    font-size: 10px;
 }
 
 /* 入力フォームのデザイン設定 */
 input {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 input[type="text"]{

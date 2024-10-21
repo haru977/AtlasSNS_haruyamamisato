@@ -44,8 +44,11 @@ class RegisterController extends Controller
             // バリデーション設定
             $request->validate([
                 'username' => 'required|between:2,12',
-                'mail' => 'required|unique:users|between:5,40',
-                'password' => 'required|alpha_num|between:8,20',
+                'mail' => 'required|email|unique:users|between:5,40',
+                'password' => 'required|alpha_num|between:8,20|confirmed',
+            ],
+            [
+                'password.confirmed' => 'パスワードが一致しません',
             ]);
 
             $username = $request->input('username');
