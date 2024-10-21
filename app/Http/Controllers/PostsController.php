@@ -32,7 +32,10 @@ public function index()
     public function store(Request $request)
     {
         $this->validate($request,[
-            'content' => 'required|min:1|max:155']);
+            'content' => 'required|min:1|max:150'],
+            [
+                'content.max' => '150文字以内で入力してください。',
+            ]);
 
         $post = new Post();
         $post->post = $request->input('content');//postカラムにデータを保存

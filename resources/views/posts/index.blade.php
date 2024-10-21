@@ -14,8 +14,15 @@
         <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="User Icon" width="25" height="25">
     @endif
             </div>
-            <div class="post-text">{!! Form::text('content',null,['required','class' => 'form-control','placeholder' => '投稿内容を入力してください'])!!}</div>
+            <div class="post-text">
+                {!! Form::text('content',null,['required','class' => 'form-control','placeholder' => '投稿内容を入力してください'])!!}
+            </div>
         </div>
+        <div class="post-error-message">
+            @if ($errors->has('content'))
+                <span class="error-message">{{ $errors->first('content') }}</span>
+            @endif
+            </div>
         <div class="post-btn">
             <input class="post-btn" type="image" src="images/post.png" width="25" height="25">
         </div>
