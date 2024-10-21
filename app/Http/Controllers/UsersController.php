@@ -54,6 +54,10 @@ class UsersController extends Controller
             'password' => 'nullable|alpha_num|between:8,20|confirmed',
             'bio' => 'max:150',
             'images' => 'nullable|mimes:jpg,png,bmp,gif,svg|max:2048',
+        ],
+        [
+            'password.confirmed' => 'パスワードが一致しません',
+            'bio.max' => '255文字以内で入力してください',
         ]);
 
         // 更新データの準備

@@ -157,6 +157,8 @@ img.arrow{
 }
 
 .side-bar-btn a{
+    width: 100%;
+    text-align: center;
     display: inline-block;
     background-color: #186AC9;
     color: #fff;
@@ -200,6 +202,10 @@ img.arrow{
 
 .post-btn{
     text-align: right;
+}
+
+.post-error-message{
+    padding-left: 40px;
 }
 
 /* 投稿一覧 */

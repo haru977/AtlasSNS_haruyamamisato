@@ -56,8 +56,8 @@
                 <label for="name">自己紹介</label>
                 <div class="update-block-br">
                 <input type="text" name="bio" value="{{ Auth::user()->bio }}">
-                @if ($errors->has('max'))
-                <span class="error-message">{{ $errors->first('max') }}</span>
+                @if ($errors->has('bio'))
+                <span class="error-message">{{ $errors->first('bio') }}</span>
                 @endif
                 </div>
             </div>
@@ -65,8 +65,8 @@
                 <label for="name">アイコン画像</label>
                 <div class="update-block-br">
                 <input class="new-icon" type="file" name="images">
-                @if ($errors->has('image'))
-                <span class="error-message">{{ $errors->first('image') }}</span>
+                @if ($errors->has('images'))
+                <span class="error-message">{{ $errors->first('images') }}</span>
                 @endif
                 </div>
             </div>
