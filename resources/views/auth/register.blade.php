@@ -26,9 +26,6 @@
         </div>
         <div class="password-confirmation">{{ Form::label('パスワード確認') }}
         {{ Form::password('password_confirmation',null,['class' => 'input']) }}
-        @if ($errors->has('password'))
-        <span class="error-message">{{ $errors->first('password') }}</span>
-        @endif
         </div>
         <div class="submit">
         <button type="input" class="btn btn-danger">{{ Form::submit('新規登録') }}</button>

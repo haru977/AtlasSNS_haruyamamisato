@@ -46,10 +46,7 @@
             <div class="update-block">
                 <label for="confirm-pass">パスワード確認</label>
                 <div class="update-block-br">
-                <input type="password" name="password_confirmation">
-                @if ($errors->has('password'))
-                <span class="error-message">{{ $errors->first('password') }}</span>
-                @endif
+                    <input type="password" name="password_confirmation">
                 </div>
             </div>
             <div class="update-block">
